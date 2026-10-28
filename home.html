@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,24 +9,138 @@
 </head>
 <body>
 
-  <main class="card home">
-    <header>
-      <div>
-        <h2>Halo, <span id="helloName">user</span></h2>
-        <p class="sub" id="helloEmail"></p>
+  <main class="dashboard">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="profile">
+        <div class="avatar" id="profileInitials">AR</div>
+        <div>
+          <p class="welcome-text">Selamat datang,</p>
+          <h2 id="helloName">User 👋</h2>
+          <p class="sub" id="helloEmail"></p>
+        </div>
       </div>
-      <button type="button" class="btn ghost" id="logoutBtn">Logout</button>
+
+      <div class="header-actions">
+        <button type="button" class="icon-button" aria-label="Notifikasi">
+          ♧
+          <span class="notification-dot"></span>
+        </button>
+        <button type="button" class="btn ghost" id="logoutBtn">
+          Logout
+        </button>
+      </div>
     </header>
 
-    <div class="menu">
-      <button type="button" data-tab="konsultasi"><strong>Konsultasi</strong><span>Chat dengan teknisi</span></button>
-      <button type="button" data-tab="troubleshooting"><strong>Troubleshooting</strong><span>Panduan cek masalah</span></button>
-      <button type="button" data-tab="riwayat"><strong>Riwayat</strong><span>Tiket sebelumnya</span></button>
+    <!-- Main dashboard layout -->
+    <div class="dashboard-content">
+
+      <section class="main-column">
+
+        <!-- Consultation banner -->
+        <section class="consultation-banner">
+          <div>
+            <h2>Ada kendala perangkat?</h2>
+            <p>Ceritakan masalahmu, konsultan kami siap membantu.</p>
+            <small>◉ Respons cepat · langkah mudah</small>
+          </div>
+          <div class="banner-icon" aria-hidden="true">♧</div>
+        </section>
+
+        <!-- Consultation categories -->
+        <section class="category-section">
+          <h3>Pilih jenis konsultasi</h3>
+
+          <div class="category-grid">
+            <button type="button" class="category-card" data-category="kerusakan">
+              <span class="category-icon">⚒</span>
+              <strong>Kerusakan</strong>
+              <small>Cari penyebab &amp; solusi</small>
+            </button>
+
+            <button type="button" class="category-card" data-category="optimasi">
+              <span class="category-icon">◴</span>
+              <strong>Optimasi performa</strong>
+              <small>Biar makin cepat &amp; ringan</small>
+            </button>
+
+            <button type="button" class="category-card" data-category="upgrade">
+              <span class="category-icon">⚙</span>
+              <strong>Upgrade perangkat</strong>
+              <small>Pilih komponen yang pas</small>
+            </button>
+
+            <button type="button" class="category-card" data-category="rekomendasi">
+              <span class="category-icon">♧</span>
+              <strong>Rekomendasi beli</strong>
+              <small>Sesuai kebutuhan &amp; bujet</small>
+            </button>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- Right sidebar -->
+      <aside class="dashboard-sidebar">
+
+        <section class="recent-section">
+          <div class="section-heading">
+            <h3>Konsultasi terakhir</h3>
+            <button type="button" class="text-button" data-tab="riwayat">
+              Lihat semua
+            </button>
+          </div>
+
+          <button type="button" class="recent-card" data-tab="riwayat">
+            <span class="recent-icon">▱</span>
+            <span class="recent-details">
+              <strong>Konsultasi terakhirmu</strong>
+              <small>Lihat riwayat konsultasi</small>
+            </span>
+            <span aria-hidden="true">›</span>
+          </button>
+        </section>
+
+        <button type="button" class="technician-card" data-tab="konsultasi">
+          <span class="technician-icon">▢</span>
+          <strong>Bingung memilih? Tanya teknisi kami</strong>
+          <span aria-hidden="true">↗</span>
+        </button>
+
+      </aside>
+
     </div>
 
+    <!-- Existing feature panel, retained for home.js -->
     <section id="panel" hidden></section>
+
+    <!-- Bottom navigation -->
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <button type="button" class="nav-item active" data-nav="beranda">
+        <span>⌂</span>
+        <small>Beranda</small>
+      </button>
+
+      <button type="button" class="nav-item" data-tab="riwayat" data-nav="riwayat">
+        <span>◷</span>
+        <small>Riwayat</small>
+      </button>
+
+      <button type="button" class="nav-item" data-tab="konsultasi" data-nav="bantuan">
+        <span>☏</span>
+        <small>Bantuan</small>
+      </button>
+
+      <button type="button" class="nav-item" data-nav="profil">
+        <span>◎</span>
+        <small>Profil</small>
+      </button>
+    </nav>
+
   </main>
 
   <script src="js/home.js"></script>
+
 </body>
 </html>

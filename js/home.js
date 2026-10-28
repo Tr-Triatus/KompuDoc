@@ -51,11 +51,53 @@ function show(...nodes) { panel.hidden = false; panel.replaceChildren(...nodes);
 function note(text, cls = "sub") { return el("p", { className: cls, textContent: text }); }
 const fmtDate = (iso) => new Date(iso).toLocaleString("id-ID");
 
-const tabs = { konsultasi: tabKonsultasi, troubleshooting: tabTroubleshooting, riwayat: tabRiwayat };
-document.querySelectorAll(".menu button").forEach((btn) => {
+
+const tabs = {
+  konsultasi: tabKonsultasi,
+  troubleshooting: tabTroubleshooting,
+  riwayat: tabRiwayat
+};
+
+// Existing menu buttons, if present
+document.querySelectorAll(".menu button[data-tab]").forEach((btn) => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".menu button").forEach((b) => b.classList.toggle("active", b === btn));
-    tabs[btn.dataset.tab]().catch((err) => show(note(err.message, "err")));
+    const tab = tabs[btn.dataset.tab];
+    if (!tab) return;
+
+    tab().catch((err) => show(note(err.message, "err")));
+  });
+});
+
+// Consultation category cards
+document.querySelectorAll(".category-card").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const category = btn.dataset.category;
+    window.location.href =
+      `device.html?category=${encodeURIComponent(category)}`;
+  });
+});
+
+// Buttons that open existing features
+document.querySelectorAll("[data-tab]").forEach((btn) => {
+  if (btn.classList.contains("menu") ||
+      btn.classList.contains("category-card")) return;
+
+  btn.addEventListener("click", () => {
+    const tab = tabs[btn.dataset.tab];
+    if (!tab) return;
+
+    tab().catch((err) => show(note(err.message, "err")));
+    document.getElementById("panel").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+// Return to homepage
+document.querySelectorAll('[data-nav="beranda"]').forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "home.html";
   });
 });
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Perangkat - KompuDoc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="device-page">
+
+  <main class="device-screen">
+    <div class="blotch blotch-1"></div>
+    <div class="blotch blotch-2"></div>
+    <header class="device-header">
+      <button type="button" class="btn ghost" id="backBtn">
+        ← Kembali
+      </button>
+    </header>
+
+    <section class="device-intro">
+      <span class="category-badge" id="categoryBadge">
+        Konsultasi
+      </span>
+      <h1>Perangkat apa yang ingin dikonsultasikan?</h1>
+      <p>Pilih satu perangkat supaya kami bisa menyiapkan panduan yang paling tepat.</p>
+    </section>
+
+    <section class="device-options" aria-label="Pilih perangkat">
+      <button type="button" class="device-option" data-device="phone">
+        <span class="device-icon">▯</span>
+        <span class="device-info">
+          <strong>Hape</strong>
+          <small>Android atau iPhone</small>
+        </span>
+        <span class="radio"></span>
+      </button>
+
+      <button type="button" class="device-option" data-device="laptop">
+        <span class="device-icon">▱</span>
+        <span class="device-info">
+          <strong>Laptop</strong>
+          <small>Windows, macOS, atau Linux</small>
+        </span>
+        <span class="radio"></span>
+      </button>
+
+      <button type="button" class="device-option" data-device="pc">
+        <span class="device-icon">▣</span>
+        <span class="device-info">
+          <strong>Komputer</strong>
+          <small>PC rakitan atau all-in-one</small>
+        </span>
+        <span class="radio"></span>
+      </button>
+    </section>
+
+    <footer class="device-footer">
+      <button type="button" class="btn continue-btn" id="continueBtn" disabled>
+        Lanjutkan <span>→</span>
+      </button>
+      <small>♧ Pilihan bisa diubah kapan saja</small>
+    </footer>
+  </main>
+
+  <script src="js/device.js"></script>
+</body>
+</html>
